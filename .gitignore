@@ -47,6 +47,7 @@ coverage.xml
 
 # Mutation testing
 mutants/
+.mutmut-cache
 
 # Project specific
 data/plots/*
