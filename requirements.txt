@@ -14,3 +14,8 @@ darkdetect>=0.8.0
 # The above platform-specific packages must be installed through your system's
 # package manager before running pip install -r requirements.txt
 
+# Testing / development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+mutmut>=2.5.0,<3.0.0
+

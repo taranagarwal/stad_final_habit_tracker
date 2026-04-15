@@ -45,6 +45,9 @@ htmlcov/
 coverage.xml
 *.cover
 
+# Mutation testing
+mutants/
+
 # Project specific
 data/plots/*
 !data/plots/.gitkeep
