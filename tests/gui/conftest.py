@@ -268,3 +268,38 @@ def pump_events(app, rounds=5):
     for _ in range(rounds):
         app.window.update()
         time.sleep(0.05)
+
+
+def find_widget_by_text(parent, text):
+    """
+    Recursively search the widget tree rooted at *parent* for a widget
+    whose ``cget("text")`` contains *text* (case-insensitive).
+
+    Returns the first matching widget, or ``None`` if not found.
+    """
+    try:
+        widget_text = str(parent.cget("text"))
+        if text.lower() in widget_text.lower():
+            return parent
+    except Exception:
+        pass
+    for child in parent.winfo_children():
+        result = find_widget_by_text(child, text)
+        if result is not None:
+            return result
+    return None
+
+
+def find_all_widgets_of_type(parent, widget_type):
+    """
+    Recursively collect all descendants of *parent* that are instances
+    of *widget_type*.
+
+    Returns a list of matching widgets (may be empty).
+    """
+    found = []
+    for child in parent.winfo_children():
+        if isinstance(child, widget_type):
+            found.append(child)
+        found.extend(find_all_widgets_of_type(child, widget_type))
+    return found
