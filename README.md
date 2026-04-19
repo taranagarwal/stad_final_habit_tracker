@@ -50,6 +50,7 @@
 - [🔒 Development Workflow](#development-workflow)
 - [💾 Data Storage](#data-storage)
 - [🎨 Themes](#themes)
+- [🧪 Testing](#testing)
 - [📄 License](#license)
 
 ---
@@ -435,6 +436,29 @@ This ensures that files are always pushed in their protected (read-only) state.
 > - System Mode: Automatically matches your system preferences
 >
 > Switch between themes using the dropdown menu in the sidebar.
+
+## Testing
+
+This fork includes a comprehensive automated test suite developed for the
+*Systematic Testing of HERALDEXX/habit-tracker* project (JHU EN.601.622,
+Spring 2026). The full suite contains **355 tests** spanning blackbox,
+whitebox, integration, mutation, and GUI categories.
+
+Quick start (full suite + coverage report):
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+pytest --cov=habit_engine --cov-branch -v
+```
+
+Expected: `355 passed`, with **≥87% branch coverage on every non-GUI logic
+module** (logic, io, setup, display, visualization, and `__init__`).
+
+For full reproduction instructions — including system Tk prerequisites,
+headless-Linux GUI testing with `xvfb-run`, mutation testing with
+`mutmut`, HTML coverage reports, and troubleshooting — see
+**[TESTING.md](TESTING.md)**.
 
 ## License
 
