@@ -73,11 +73,11 @@ pytest --cov=habit_engine --cov-branch --cov-report=html && open htmlcov/index.h
 
 ## Step 4 — Validation suite (Justin)
 
-Single-source proposal traceability file.
-
 ```bash
 pytest tests/integration/test_proposal_validation.py -v
 ```
+
+This file is organized by proposal requirement rather than by testing technique, so each promise we made has one test class that proves it. We verify that `--view-logs` is truly read-only by SHA-256 hashing every JSON file before and after, that `--reset` wipes the `plots/` directory along with the data, and that `--lock` and `--dev` actually flip the filesystem permission bits. We also confirm a missed day resets a streak to zero instead of decrementing, that habit setup rejects counts below two, and that our charts plot the raw data accurately — `True` maps to `1`, `False` to `0`, and out-of-range dates are filtered out.
 
 ---
 
