@@ -2,11 +2,25 @@
 
 Command reference for the live presentation. One section per step, matching the speaker notes.
 
-## Preamble (fresh clone only)
+## Preamble
+
+Fresh clone — create the venv and install deps:
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+Already set up — just activate the project venv before running anything (do NOT stay in `(base)`, otherwise `pytest` / `mutmut` will not be found):
+
+```bash
+source .venv/bin/activate
+```
+
+Sanity check (should print the `.venv` path and a mutmut version):
+
+```bash
+which python && python -c "import mutmut; print(mutmut.__version__)"
 ```
 
 ---
@@ -73,6 +87,29 @@ Do NOT run `mutmut run` live — it takes ~4 minutes. Show the post-improvement 
 
 ```bash
 cat docs/mutation/post_improvement_report.md
+```
+
+For reference only — the commands that produced the report (do not run during the demo):
+
+```bash
+mutmut run
+mutmut results
+```
+
+Troubleshooting — `zsh: command not found: mutmut`
+
+This means you are in the `(base)` conda env (or any env without the project deps). Activate the project venv first, or invoke mutmut via the current Python:
+
+```bash
+source .venv/bin/activate
+mutmut run
+```
+
+Or, without activating:
+
+```bash
+python -m pip install "mutmut>=2.5,<3.0"
+python -m mutmut run
 ```
 
 ---
