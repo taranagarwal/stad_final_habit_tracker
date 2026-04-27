@@ -13,6 +13,12 @@
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-6A5ACD?style=for-the-badge" alt="Platforms" />
   <img src="https://img.shields.io/badge/python-3.8%2B-blue?style=for-the-badge" alt="Python Version" />
+  <a href="https://github.com/taranagarwal/stad_final_habit_tracker/actions/workflows/test.yml">
+    <img src="https://github.com/taranagarwal/stad_final_habit_tracker/actions/workflows/test.yml/badge.svg?branch=main" alt="Tests" />
+  </a>
+  <a href="https://codecov.io/gh/taranagarwal/stad_final_habit_tracker">
+    <img src="https://codecov.io/gh/taranagarwal/stad_final_habit_tracker/branch/main/graph/badge.svg" alt="Coverage" />
+  </a>
 </p>
 
 ---
